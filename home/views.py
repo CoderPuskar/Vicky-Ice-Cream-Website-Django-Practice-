@@ -1,4 +1,5 @@
 from django.shortcuts import render,HttpResponse
+from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -17,4 +18,13 @@ def about(request):
 
 def contact(request):
     # return HttpResponse("This is nothing page ")
+    #if have request and enter the form then save it in database
+    if request.method=="POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        description=request.POST.get('description')
+        
+
+
     return render(request,'contact.html')
